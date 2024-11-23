@@ -15,11 +15,12 @@ public void setup() {
 }
 public void draw() {
   background(0); 
-  KeysPressed(); 
-  ship.move();   
-  ship.show();   
-  for (int i = 0; i < stars.length; i++) 
+  KeysPressed();
+  for (int i = 0; i < stars.length; i++) {
   stars[i].show();
+}
+  ship.move();   
+  ship.show();
 
 }
 
