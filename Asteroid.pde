@@ -7,14 +7,14 @@ class Asteroid extends Floater{
     //rule for random: Distance from range and then minus number + 1 to the highest range -> negative values and positive Values
     //rule for random: Distance from range and then minus the number + 1 to the lowest range -> only negative values
     // First dot
-    xCorners[0] = (int)(Math.random()*); //range of  to , original value: -11
+    xCorners[0] = (int)(Math.random()*5)-13; //range of -9 to -13, original value: -11
     yCorners[0] = (int)(Math.random()*5)-10; //range of -6 to -10, original value: -8
     // Second dot
-    xCorners[1] = (int)(Math.random()*); //range of  to , original value: -5
-    yCorners[1] = (int)(Math.random()*); //range of  to , original value: 0
+    xCorners[1] = (int)(Math.random()*5)-7; //range of -3 to -7, original value: -5
+    yCorners[1] = (int)(Math.random()*5)-2; //range of -2 to 2, original value: 0
     // Third dot
-    xCorners[2] = (int)(Math.random()*); //range of -9 to -13 , original value: -11
-    yCorners[2] = (int)(Math.random()*5); //range of 6 to 10, original value: 8
+    xCorners[2] = (int)(Math.random()*5)-13; //range of -9 to -13 , original value: -11
+    yCorners[2] = (int)(Math.random()*5)+6; //range of 6 to 10, original value: 8
     // Fourth dot
     xCorners[3] = (int)(Math.random()*5)+5; //range of 5 to 9, original value: 7
     yCorners[3] = (int)(Math.random()*5)-10; //range of -6 to -10 , original value: -8
