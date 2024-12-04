@@ -3,20 +3,21 @@ class Asteroid extends Floater{
     corners = 6;
     xCorners = new int[corners];
     yCorners = new int[corners];
-    //rule for random: Distance from range and then add number + 1 to the highest range -> positive values
-    //rule for random: Distance from range and then minus number + 1 to the highest range -> negative values
+    //rule for random: Distance from range and then add number + 1 to the highest range -> only positive values
+    //rule for random: Distance from range and then minus number + 1 to the highest range -> negative values and positive Values
+    //rule for random: Distance from range and then minus the number + 1 to the lowest range -> only negative values
     // First dot
     xCorners[0] = (int)(Math.random()*); //range of  to , original value: -11
-    yCorners[0] = (int)(Math.random()*); //range of  to , original value: -8
+    yCorners[0] = (int)(Math.random()*5)-10; //range of -6 to -10, original value: -8
     // Second dot
     xCorners[1] = (int)(Math.random()*); //range of  to , original value: -5
     yCorners[1] = (int)(Math.random()*); //range of  to , original value: 0
     // Third dot
-    xCorners[2] = (int)(Math.random()*); //range of  to , original value: -11
-    yCorners[2] = (int)(Math.random()*); //range of  to , original value: 8
+    xCorners[2] = (int)(Math.random()*); //range of -9 to -13 , original value: -11
+    yCorners[2] = (int)(Math.random()*5); //range of 6 to 10, original value: 8
     // Fourth dot
-    xCorners[3] = (int)(Math.random()*); //range of  to , original value: 7
-    yCorners[3] = (int)(Math.random()*5); //range of -6 to -10 , original value: -8
+    xCorners[3] = (int)(Math.random()*5)+5; //range of 5 to 9, original value: 7
+    yCorners[3] = (int)(Math.random()*5)-10; //range of -6 to -10 , original value: -8
     // Fifth dot
     xCorners[4] = (int)(Math.random()*6)+10; //range of 10 to 15, original value: 13
     yCorners[4] = (int)(Math.random()*5)-2; //range of -2 to 2, original value: 0
