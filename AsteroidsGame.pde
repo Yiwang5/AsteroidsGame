@@ -1,5 +1,4 @@
 Spaceship ship;
-Asteroid asteroid;
 boolean wIsPressed = false;
 boolean aIsPressed = false;
 boolean sIsPressed = false;
@@ -7,28 +6,41 @@ boolean dIsPressed = false;
 boolean eIsPressed = false;
 boolean spaceIsPressed = false;
 Star[] stars = new Star[200];
-ArrayList <Integer> asteroids = new ArrayList <Integer>();
+ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
 
 public void setup() {
   size(600, 600);
-  asteroid = new Asteroid();
   ship = new Spaceship();
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
+  for (int i = 0; i < 15; i++) {
+  asteroids.add(new Asteroid()); 
+    }
+ 
+}//end of setup
 
-}
+
 public void draw() {
   background(0); 
   KeysPressed();
   for (int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
-  asteroid.show();
-  asteroid.move();
+for (int i = asteroids.size() - 1; i >= 0; i--) {
+    Asteroid asteroid = asteroids.get(i);  
+    asteroid.show();
+    asteroid.move();
+
+    float distance = dist((float) asteroid.getCenterX(), (float) asteroid.getCenterY(),(float) ship.getCenterX(), (float) ship.getCenterY());
+    if (distance <= 10) {
+      asteroids.remove(i);  
+    }
+}
   ship.move();   
   ship.show();
-}
+  
+}//end of draw
 
 public void keyPressed() {
   if (key == 'w' ) {
@@ -75,3 +87,5 @@ public void KeysPressed() {
     ship.hyperspace();
   }
 }//end of function keyspressed
+
+
