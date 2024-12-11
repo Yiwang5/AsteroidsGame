@@ -1,14 +1,20 @@
-class Bullet extends Floater{
-  
-  public Bullet(Spaceship ship){
-     myCenterY = ship.getCenterY();
-     myCenterX = ship.getCenterX();
+class Bullet extends Floater {
+
+  public Bullet(Spaceship ship) {
+    myCenterY = ship.getCenterY();
+    myCenterX = ship.getCenterX();
     myPointDirection = ship.myPointDirection();
-    
-    
+    myColor = color(255,255,255);
+    accelerate(6.6);
   }//end of bullet constructor
-  
-  public void show(){
-    ellipse( (float)myCenterX,(float)myCenterY,10,10);
+
+  public void show() {
+    fill(myColor);
+    ellipse( (float)myCenterX, (float)myCenterY, 10, 10);
   }//end of show
+  
+  public void move(){
+      super.move();
+  }
+  
 }//end of bullet class
