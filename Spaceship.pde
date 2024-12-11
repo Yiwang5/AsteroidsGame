@@ -21,13 +21,13 @@ class Spaceship extends Floater {
     myXspeed = 0;
     myYspeed = 0;
     myPointDirection = 0;
-  }
+  }//end of constructor
 
   public void show() {
     fill(myColor);
     stroke(myColor);
     super.show();
-  }
+  }//end of show
 
 
   public void hyperspace() {
@@ -38,14 +38,28 @@ class Spaceship extends Floater {
     myCenterY = random(0, height);
 
     myPointDirection = random(0, 360);
-  }
+  }//end of hyperspace
   
   public double getCenterX() {
   return myCenterX;
-}
+}//Getter for X
 
 public double getCenterY() {
   return myCenterY;
-}
+}//getter for Y
+
+public double myPointDirection() {
+  return myPointDirection; 
+}//getter for point direction
+
+
+public double myXspeed() {
+  return myXspeed;
+}//getter for x speed
+
+
+public double myYspeed() {
+  return myYspeed;
+}//getter for Y speed
 
 }//end of spaceship class
