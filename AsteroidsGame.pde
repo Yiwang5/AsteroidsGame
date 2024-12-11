@@ -1,4 +1,5 @@
 Spaceship ship;
+Bullet bullet;
 boolean wIsPressed = false;
 boolean aIsPressed = false;
 boolean sIsPressed = false;
@@ -7,6 +8,7 @@ boolean eIsPressed = false;
 boolean spaceIsPressed = false;
 Star[] stars = new Star[200];
 ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
+ArrayList <Bullet> bullets = new ArrayList <Bullet>();
 
 public void setup() {
   size(600, 600);
@@ -27,7 +29,13 @@ public void draw() {
   for (int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
-for (int i = asteroids.size() - 1; i >= 0; i--) {
+for (int i = 0; i < bullets.size();  i++){//array trap fix 
+    Bullet bullet = bullets.get(i);  
+    bullet.show();
+    bullet.move();
+}
+
+for (int i = asteroids.size() - 1; i >= 0; i--){//array trap fix 
     Asteroid asteroid = asteroids.get(i);  
     asteroid.show();
     asteroid.move();
@@ -53,6 +61,8 @@ public void keyPressed() {
     dIsPressed = true;
   } else if (key == 'e') {
     eIsPressed = true;
+  } else if (key == ' ') {
+    spaceIsPressed = true;
   }
 }//end of keypressed
 
@@ -67,6 +77,8 @@ public void keyReleased() {
     dIsPressed = false;
   } else if (key == 'e') {
     eIsPressed = false;
+  } else if (key == ' ') {
+    spaceIsPressed = false;
   }
 }//end of KeyReleased
 
@@ -85,7 +97,8 @@ public void KeysPressed() {
   }
   if (eIsPressed == true) {
     ship.hyperspace();
+  }  
+  if (spaceIsPressed == true) {
+    bullets.add(new Bullet(ship));
   }
 }//end of function keyspressed
-
-
