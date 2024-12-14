@@ -15,6 +15,14 @@ class Bullet extends Floater {
   
   public void move(){
       super.move();
-  }
+  }//end of move
   
+  public double getCenterX() {
+    return myCenterX;
+  }//Getter for X
+
+  public double getCenterY() {
+    return myCenterY;
+  }//getter for Y
+
 }//end of bullet class
