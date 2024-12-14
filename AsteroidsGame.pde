@@ -17,9 +17,8 @@ public void setup() {
     stars[i] = new Star();
   }
   for (int i = 0; i < 15; i++) {
-  asteroids.add(new Asteroid()); 
-    }
- 
+    asteroids.add(new Asteroid());
+  }
 }//end of setup
 
 
@@ -29,25 +28,32 @@ public void draw() {
   for (int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
-for (int i = 0; i < bullets.size();  i++){//array trap fix 
-    Bullet bullet = bullets.get(i);  
+  for (int i = bullets.size() - 1; i >= 0; i--) {
+    Bullet bullet = bullets.get(i);
     bullet.show();
     bullet.move();
-}
+    if (bullet.getCenterX() < 0 || bullet.getCenterX() > 600 || bullet.getCenterY() < 0 || bullet.getCenterY() > 600)     
+        bullets.remove(i);
+        
+    for (int j = asteroids.size() - 1; j >= 0; j--) {
+      Asteroid asteroid = asteroids.get(j);
+      float distance = dist((float) asteroid.getCenterX(), (float) asteroid.getCenterY(), (float) bullet.getCenterX(), (float) bullet.getCenterY());
 
-for (int i = asteroids.size() - 1; i >= 0; i--){//array trap fix 
-    Asteroid asteroid = asteroids.get(i);  
-    asteroid.show();
-    asteroid.move();
+      if (distance <= 10) {
+        asteroids.remove(j);
+        bullets.remove(i);
+      }//if distance
+    }//asteroids loop
+  }//bullets loop
 
-    float distance = dist((float) asteroid.getCenterX(), (float) asteroid.getCenterY(),(float) ship.getCenterX(), (float) ship.getCenterY());
-    if (distance <= 10) {
-      asteroids.remove(i);  
-    }
+for (int i = asteroids.size() - 1; i >= 0; i--) {//array trap fix 
+  Asteroid asteroid = asteroids.get(i);  
+  asteroid.show();
+  asteroid.move();
 }
+  
   ship.move();   
   ship.show();
-  
 }//end of draw
 
 public void keyPressed() {
@@ -86,7 +92,7 @@ public void KeysPressed() {
   if (wIsPressed == true) {
     ship.accelerate(0.1); //forward
   }
-   if (sIsPressed == true) {
+  if (sIsPressed == true) {
     ship.accelerate(-0.1); //backward
   }
   if (aIsPressed == true) {
