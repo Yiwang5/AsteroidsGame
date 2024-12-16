@@ -3,7 +3,7 @@ class Bullet extends Floater {
   public Bullet(Spaceship ship) {
     myCenterY = ship.getCenterY();
     myCenterX = ship.getCenterX();
-    myPointDirection = ship.myPointDirection();
+    //myPointDirection = ship.myPointDirection();
     myColor = color(255,255,255);
     accelerate(6.6);
   }//end of bullet constructor
